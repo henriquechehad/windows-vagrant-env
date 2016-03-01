@@ -12,8 +12,6 @@ Vagrant.configure("2") do |config|
     config.vm.define "vagrant-windows"
     config.vm.box = "opentable/win-2008r2-standard-amd64-nocm"
 
-    # You should be using the vagrant-windows Vagrant Plugin!
-    # Admin user name and password
     config.winrm.username = "Administrator"
     config.winrm.password = "vagrant"
 
