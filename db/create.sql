@@ -1,6 +1,6 @@
 -- Check if database exists
 print "Checking if database exists..."
-IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'testing')
+IF EXISTS (SELECT name FROM master.sys.databases WHERE name = N'example')
 BEGIN
     print "Database already exists"
     RAISERROR ('Database already exists', 20, 1) with log;
