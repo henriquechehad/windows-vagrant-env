@@ -1,0 +1,17 @@
+{
+    "sql_server": {
+        "accept_eula": true,
+        "server_sa_password": "0SetAPassword!"
+    },
+    "dotnetframework": {
+        "version": "4.5.2"
+    },
+    "run_list": [
+        "recipe[windows::default]",
+        "recipe[dotnetframework::default]",
+        "recipe[sql_server::default]",
+        "recipe[sql_server::server]",
+        "recipe[main::default]",
+        "recipe[windows::reboot_handler]"
+    ]
+}

@@ -1,12 +1,11 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Configure the MS SQL password
-MSSQL_PASSWORD = "0SetAPassword!"
-
 # PATHS
 FILE_CACHE_PATH = "c:/chef/cache"
 FILE_BACKUP_PATH = "c:/chef/backup"
+
+CURRENT_PATH = File.dirname(__FILE__)
 
 Vagrant.configure("2") do |config|
     config.vm.define "vagrant-windows"
@@ -34,34 +33,13 @@ Vagrant.configure("2") do |config|
     config.berkshelf.enabled = true
     config.berkshelf.berksfile_path = "./Berksfile"
 
-
-    # Install SQL Server and .NET Framework
-    config.vm.provision :chef_solo do |chef|
+    config.vm.provision "chef_solo" do |chef|
         chef.log_level = :debug
         chef.file_cache_path = FILE_CACHE_PATH
         chef.file_backup_path = FILE_BACKUP_PATH
-        chef.add_recipe "windows::default"
-        chef.add_recipe "windows::reboot_handler"
-        chef.add_recipe "dotnetframework::default"
-        chef.add_recipe "sql_server::default"
-        chef.add_recipe "sql_server::server"
-
-        chef.json={
-            "windows"=>{
-                "reboot_timeout" => 15
-            },
-            "sql_server" => {
-                "accept_eula" => true,
-                "server_sa_password" => MSSQL_PASSWORD,
-            },
-            "dotnetframework"=>{
-                "version" => "4.5.2",
-            },
-        }
+        chef.cookbooks_path = "cookbooks"
+        chef.json.merge!(JSON.parse(File.read(CURRENT_PATH+"/chef.json")))
     end
-
-    config.vm.provision :shell, path: "scripts/create-database.cmd"
-    config.vm.provision :shell, path: "scripts/disable-firewall.cmd"
 
     config.vm.provider "virtualbox" do |v|
         v.gui = true
