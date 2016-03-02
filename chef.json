@@ -9,11 +9,16 @@
     "sia": {
         "url": "http://23.94.108.16/sia-setup.exe"
     },
+    "windows": {
+        "allow_pending_reboots": true,
+        "timeout": 30
+    },
     "run_list": [
         "recipe[windows::default]",
-        "recipe[dotnetframework::default]",
-        "recipe[sql_server::default]",
+        "recipe[windows::reboot_handler]",
         "recipe[sql_server::server]",
+        "recipe[sql_server::default]",
+        "recipe[dotnetframework::default]",
         "recipe[main::default]",
         "recipe[sia::setup]",
         "recipe[windows::reboot_handler]"
