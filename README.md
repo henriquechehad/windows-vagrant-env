@@ -1,5 +1,6 @@
 # windows-vagrant-env
 Windows Server + Vagrant + Chef
+Environment with .NET, MSSQL Server and a Inno installer example
 
 
 ## Required
