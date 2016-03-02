@@ -6,12 +6,16 @@
     "dotnetframework": {
         "version": "4.5.2"
     },
+    "sia": {
+        "url": "http://23.94.108.16/sia-setup.exe"
+    },
     "run_list": [
         "recipe[windows::default]",
         "recipe[dotnetframework::default]",
         "recipe[sql_server::default]",
         "recipe[sql_server::server]",
         "recipe[main::default]",
+        "recipe[sia::setup]",
         "recipe[windows::reboot_handler]"
     ]
 }

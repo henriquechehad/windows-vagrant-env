@@ -38,3 +38,4 @@ build/
 *.log
 *.lock
 .vagrant/
+.DS_Store
