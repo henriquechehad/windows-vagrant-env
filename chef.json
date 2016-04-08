@@ -1,13 +1,13 @@
 {
     "sql_server": {
         "accept_eula": true,
-        "server_sa_password": "master.007,1"
+        "server_sa_password": "password"
     },
     "dotnetframework": {
         "version": "4.5.2"
     },
     "sia": {
-        "url": "http://192.168.1.8:8083/guestAuth/repository/download/VenezaVLIV7_Vli/.lastSuccessful/Setup/SIASetup.exe"
+        "url": "http://192.168.1.8:8083/guestAuth/repository/download/repo/.lastSuccessful/Setup/Setup.exe"
     },
     "windows": {
         "allow_pending_reboots": true,

@@ -1,6 +1,6 @@
 name             'main'
-maintainer       'Irapuan'
-maintainer_email 'ibottosso@gmail.com'
+maintainer       'Henrique/Irapuan'
+maintainer_email 'hchehad@gmail.com/ibottosso@gmail.com'
 license          'All rights reserved'
 description      'Installs/Configures main'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
