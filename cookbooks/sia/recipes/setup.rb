@@ -14,7 +14,7 @@ cookbook_file 'c:\\aplicativos\\sia\\sia.ini' do
 end
 
 # Install SIA setup
-windows_package 'sia-setup.exe' do
+windows_package 'SIASetup.exe' do
     source node['sia']['url']
     installer_type :inno
     action :install

@@ -13,6 +13,8 @@ Vagrant.configure("2") do |config|
 
     config.winrm.username = "Administrator"
     config.winrm.password = "vagrant"
+	
+	config.vm.network "private_network", ip: "192.168.1.54"
 
     config.vm.guest = :windows
     config.windows.halt_timeout = 15
